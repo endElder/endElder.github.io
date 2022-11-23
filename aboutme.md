@@ -1,15 +1,17 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Thanks for spending some time on my page
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Midi Wang. An ordinary one in 8,000,000,000. Some charactstics of me:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+- I don't typically eat a lot, but when I will get stressed or hungry, I will.
+- When I get frustrated, I will sleep a lot.
 
-What else do you need?
+What something do you need?
+
+Nothing :o
 
 ### My story
 

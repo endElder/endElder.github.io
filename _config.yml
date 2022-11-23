@@ -49,18 +49,18 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "midiw777.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  email: "midiw777@gmail.com"
+  #rss: true  # remove this line if you don't want to show an RSS link at the bottom
   #facebook: deanattali
   github: endElder
 #  twitter: daattali
 #  patreon: DeanAttali
-  youtube: c/dongivetomi
+  youtube: c/UCLcT_XoCXUq3avFnq8S4-0Q
 #  medium: yourname
 #  reddit: yourname
   linkedin: midi-wang
  # xing: FieryDawn
- wechat: fieryDawn
+ #wechat: fieryDawn
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
   instagram: m7dii

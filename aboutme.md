@@ -4,14 +4,17 @@ title: About me
 subtitle: Thanks for spending some time on my page
 ---
 
-My name is Midi Wang. An ordinary one in 8,000,000,000. Some charactstics of me:
+This is Midi Wang. An ordinary one in 8,000,000,000. 
+
+Some charactstics of me:
 
 - I don't typically eat a lot, but when I will get stressed or hungry, I will.
 - When I get frustrated, I will sleep a lot.
 
+
 What something do you need?
 
-Nothing :o
+Nothing :o or leave a comment here.
 
 ### My Life Story
 

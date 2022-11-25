@@ -3,7 +3,7 @@ layout: page
 title: About me
 subtitle: Thanks for spending some time on my page
 ---
-Updateding slowly depends on my mood.
+Updated slowly depends on my mood.
 
 It's Midi here. An ordinary one in 8,000,000,000 in the world. 
 

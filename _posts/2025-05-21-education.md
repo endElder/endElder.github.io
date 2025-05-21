@@ -20,7 +20,7 @@ Sep 2020 - Aug 2024
 
 ![grad](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/gra.jpg)
 
-![gra](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/gra.png)
+![gra](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/photo.jpeg)
 
 
 I was finally graduated!(Hurrah!)

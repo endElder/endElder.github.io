@@ -17,7 +17,7 @@ Sep 2020 - Aug 2024
  the place I spend 4 years to get my degree.
 
 ![grad](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/grad1.jpg)
-![uw](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/uw.jpg)
+
 I was finally graduated!(Hurrah!)
 
 

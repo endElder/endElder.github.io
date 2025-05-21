@@ -7,12 +7,14 @@ title: Education
 
 Bachelor of Mathematics | Sep 2020 - Aug 2024  
 
-![Crepe](https://drive.google.com/file/d/1BFvUb_nIEjvuvg-zHMRurfqUz6-4wcMF/view?usp=sharing){: .mx-auto.d-block :}
+![Crepe](![Crepe](https://beautifuljekyll.com/assets/img/uw.jpg){: .mx-auto.d-block :}
+){: .mx-auto.d-block :}
 
  the place I spend 4 years to get my degree.
 
 
-![Crepe](https://drive.google.com/file/d/1QCJTTeLNWtzwr-1xyQqrUqSoUm-cRy8x/view?usp=sharing){: .mx-auto.d-block :}
+![Crepe](![Crepe](https://beautifuljekyll.com/assets/img/grad.jpg){: .mx-auto.d-block :}
+){: .mx-auto.d-block :}
 I was finally graduated!(Hurrah!)
 
 
@@ -21,4 +23,5 @@ I was finally graduated!(Hurrah!)
 Exchange | Sep 2022 - Jan 2023  
 
 
-![Crepe](https://drive.google.com/file/d/1QCJTTeLNWtzwr-1xyQqrUqSoUm-cRy8x/view?usp=sharing){: .mx-auto.d-block :}
+![Crepe](![Crepe](https://beautifuljekyll.com/assets/img/epfl.jpg){: .mx-auto.d-block :}
+){: .mx-auto.d-block :}

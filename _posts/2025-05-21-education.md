@@ -2,6 +2,7 @@
 layout: default
 title: Education
 ---
+![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
 
 **University of Waterloo**  Ontario, Canada
 

@@ -2,8 +2,6 @@
 layout: default
 title: Education
 ---
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
-
 
 
 
@@ -30,3 +28,4 @@ Sep 2022 - Jan 2023
 
 
 ![Epfl](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/epfl.jpg)
+Beautiful Campus, different style

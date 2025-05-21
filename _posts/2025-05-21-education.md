@@ -15,11 +15,11 @@ Sep 2020 - Aug 2024
 ![uw](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/uw.jpg)
 
 
-<img src="https://endelder.github.io/assets/img/grad1.jpg">
+<img src="https://endelder.github.io/assets/img/grad.jpg">
 
  the place I spend 4 years to get my degree.
 
-![grad](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/grad1.jpg)
+![grad](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/grad.jpg)
 
 I was finally graduated!(Hurrah!)
 

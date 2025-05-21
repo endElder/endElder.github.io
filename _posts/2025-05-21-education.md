@@ -4,10 +4,9 @@ title: Education
 ---
 ![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
 
-![Epfl](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/epfl.jpg)
 
 
-![Crepe](https://github.com/endElder/endElder.github.io/raw/master/assets/img/epfl.jpg)
+
 **University of Waterloo** Ontario, Canada
 
 
@@ -15,14 +14,11 @@ Bachelor of Mathematics
 
 Sep 2020 - Aug 2024  
 
-![uw](![uw](https://beautifuljekyll.com/assets/img/uw.jpg){: .mx-auto.d-block :}
-){: .mx-auto.d-block :}
+![uw](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/uw.jpg)
 
  the place I spend 4 years to get my degree.
 
-
-![grad](![grad](https://beautifuljekyll.com/assets/img/grad.jpg){: .mx-auto.d-block :}
-){: .mx-auto.d-block :}
+![grad](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/grad.jpg)
 I was finally graduated!(Hurrah!)
 
 
@@ -33,5 +29,4 @@ Exchange
 Sep 2022 - Jan 2023  
 
 
-![epfl](![epfl](https://beautifuljekyll.com/assets/img/epfl.jpg){: .mx-auto.d-block :}
-){: .mx-auto.d-block :}
+![Epfl](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/epfl.jpg)

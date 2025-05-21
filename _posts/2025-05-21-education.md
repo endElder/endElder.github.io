@@ -6,8 +6,9 @@ title: Education
 
 
 
-![Crepe]((https://github.com/endElder/endElder.github.io/blob/master/assets/img/epfl.jpg))
-**University of Waterloo**  Ontario, Canada
+![Crepe](https://github.com/endElder/endElder.github.io/raw/master/assets/img/epfl.jpg)
+**University of Waterloo** Ontario, Canada
+
 
 Bachelor of Mathematics 
 

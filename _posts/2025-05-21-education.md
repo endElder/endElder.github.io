@@ -4,6 +4,7 @@ title: Education
 ---
 ![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
 
+![Epfl](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/epfl.jpg)
 
 
 ![Crepe](https://github.com/endElder/endElder.github.io/raw/master/assets/img/epfl.jpg)

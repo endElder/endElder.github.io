@@ -4,6 +4,9 @@ title: Education
 ---
 ![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
 
+
+
+![Crepe]([https://beautifuljekyll.com/assets/img/crepe.jpg](https://github.com/endElder/endElder.github.io/blob/master/assets/img/epfl.jpg))
 **University of Waterloo**  Ontario, Canada
 
 Bachelor of Mathematics 

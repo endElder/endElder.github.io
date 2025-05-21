@@ -15,7 +15,6 @@ Sep 2020 - Aug 2024
 ![uw](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/uw.jpg)
 
 
-![grad](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/gra.jpg)
 
 
 <img src="https://endelder.github.io/assets/img/grad.jpg">

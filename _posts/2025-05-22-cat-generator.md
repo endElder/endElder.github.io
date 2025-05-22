@@ -23,5 +23,4 @@ none
 ![TheCatAPI](https://img.shields.io/badge/TheCatAPI-000000?style=flat&logo=thecatapi&logoColor=white)
 
 
-- [See Cat]([https://github.com/endElder/Random-Cat-Generator](https://github.com/endElder/Random-Cat-Generator)
-)
+[![Random Cat Generator](https://img.shields.io/badge/See-Random_Cat-FF9E4D?style=for-the-badge&logo=github&logoColor=white)](https://github.com/endElder/Random-Cat-Generator)

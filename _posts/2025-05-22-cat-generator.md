@@ -14,11 +14,11 @@ none
 ## Technology Stack:
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) 
 
-![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) - Frontend Framework  
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) 
 
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat&logo=html5&logoColor=white) 
 
-![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white) - Page Structure & Styling  
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white) 
 
 ![TheCatAPI](https://img.shields.io/badge/TheCatAPI-000000?style=flat&logo=thecatapi&logoColor=white)
 

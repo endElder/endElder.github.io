@@ -20,10 +20,6 @@ Sep 2020 - Aug 2024
 
 
 
-![gra](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/photo.jpeg)
-
-
-I was finally graduated!(Hurrah!)
 
 
 **École Polytechnique Fédérale de Lausanne** Lausanne, Switerland

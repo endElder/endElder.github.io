@@ -10,12 +10,12 @@ Traveled solo trip 17 countries, have tried paragliding, skydiving and hot air b
 Born and raised in Shanghai, China. After graduating from middle school, followed my parents to Canada and completed my high school and undergraduate there.
 
 
-![aus](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/aus.jpg)
+![aus](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/aus.JPG)
 
-![egy](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/egy.jpg)
+![egy](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/egy.JPG)
 
-![egy2](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/egy2.jpg)
+![egy2](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/egy2.JPG)
 
-![gen](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/gen.jpg)
+![gen](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/gen.JPG)
 
 

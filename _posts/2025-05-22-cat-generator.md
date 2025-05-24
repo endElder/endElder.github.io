@@ -5,6 +5,13 @@ title: cat-generator
 ## Preview:
 ![cat](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/cat.png)
 
+## Summary:
+I build a Random Cat Generator using React, JavaScript, and TheCatAPI. This project helps me explore asynchronous requests, component state management, and API interactions.
+
+While working with React, I learn how to use useState and useEffect hooks.Fetch external data asynchronously using the fetch API.
+
+The most challenging part is handling malformed API responses. To solve this, I implement error-checking and fallback mechanisms to ensure the app remains stable even when the API returns unexpected data.
+
 ## Project description: 
 to get some random cute cat 😺
 

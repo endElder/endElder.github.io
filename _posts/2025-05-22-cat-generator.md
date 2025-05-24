@@ -10,7 +10,7 @@ I build a Random Cat Generator using React, JavaScript, and TheCatAPI. This proj
 
 While working with React, I learn how to use useState and useEffect hooks.Fetch external data asynchronously using the fetch API.
 
-The most challenging part is handling malformed API responses. To solve this, I implement error-checking and fallback mechanisms to ensure the app remains stable even when the API returns unexpected data.
+The most challenging part was handling malformed API responses. To solve this, I implement error-checking and fallback mechanisms to ensure the app remains stable even when the API returns unexpected data.
 
 ## Project description: 
 to get some random cute cat 😺

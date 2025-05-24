@@ -3,7 +3,15 @@ layout: default
 title: mood-decide-movie
 ---
 ## Preview:
-![to-do](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/movie.png)
+![movie](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/movie.png)
+
+## Summary:
+I develop a mood-based movie recommendation system using Flask and the TMDB API. Users enter a mood, and the system recommends a movie that matches it.
+
+I use Flask to build the API layer, handle routing, process form data, and integrate with TMDB to fetch real movie metadata. I also learn how to parse mood keywords and match them intelligently to movie genres using a keyword-to-genre mapping strategy.
+
+The most challenging part of this project is classifying moods accurately. To solve this, I implement a mood-to-genre matching mechanism that uses keyword analysis and conditional logic within the Flask backend.
+
 
 ## Project description: 
 type a mood the system will recommend the closest movie to you!

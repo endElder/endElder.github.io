@@ -2,7 +2,7 @@
 layout: default
 title: Experience
 ---
-## Startup company - Software Engineer 
+## Startup company - Software Engineer (Recently Job)
 As a developer of the startup team, I built the backend system architecture and participated in the pricing strategy formulation of the business model. 
 
 In an environment with limited resources, I quickly mastered the distributed system design and cloud-native architecture, and accumulated full-process experience from data cleaning to model deployment by building a scalable machine learning pipeline to process massive data sets. This high-pressure growth experience has enabled me to quickly learn and deliver production-level systems.

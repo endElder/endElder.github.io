@@ -8,9 +8,9 @@ title: real-weather
 ## Summary:
 I build a real-time weather warning system that fetches live weather data and sends out alerts when severe weather is detected.
 
-And I learn how to integrate a public API, set up a backend with FastAPI, and create a responsive frontend with React. I also learn how to handle asynchronous data fetching and error handling in real-world situations.
+And I learn how to integrate a public API, set up a backend with FastAPI, and create a responsive frontend with React, also learn how to handle asynchronous data fetching and error handling in real-world situations.
 
-I find the most challenging part was ensuring reliable communication between the frontend and backend, especially handling CORS issues, which I solve through careful debugging and configuration of middleware.
+For this project, the most challenging part was ensuring reliable communication between the frontend and backend, especially handling CORS issues, which I solve through careful debugging and configuration of middleware.
 
 ## Project description: 
 Based on your location, get your current weather, and warning if something going wrong

@@ -8,7 +8,7 @@ title: mood-decide-movie
 ## Summary:
 I develop a mood-based movie recommendation system using Flask and the TMDB API. Users enter a mood, and the system recommends a movie that matches it.
 
-I use Flask to build the API layer, handle routing, process form data, and integrate with TMDB to fetch real movie metadata. I also learn how to parse mood keywords and match them intelligently to movie genres using a keyword-to-genre mapping strategy.
+I use Flask to build the API layer, handle routing, process form data, and integrate with TMDB to fetch real movie metadata, also learn how to parse mood keywords and match them intelligently to movie genres using a keyword-to-genre mapping strategy.
 
 The most challenging part of this project was classifying moods accurately. To solve this, I implement a mood-to-genre matching mechanism that uses keyword analysis and conditional logic within the Flask backend.
 

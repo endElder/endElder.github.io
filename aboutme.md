@@ -3,7 +3,7 @@ layout: page
 title: About me
 subtitle: Some Fun Facts
 ---
-Traveled solo trip 17 countries, have tried paragliding, skydiving and hot air ballooning, and found that I like paragliding the most. I plan to get a paragliding license when I have time. (Fly independently!)
+I have tried paragliding, skydiving and hot air ballooning, and found that I like paragliding the most. I plan to get a paragliding license when I have time. (Fly independently!)
 
 
 ### My story

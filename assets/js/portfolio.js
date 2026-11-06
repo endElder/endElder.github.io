@@ -4,6 +4,25 @@
     "(prefers-reduced-motion: no-preference)",
   );
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+  const hero = document.querySelector(".hero");
+  const replayButton = document.querySelector("#replay-intro");
+  const updateReplay = () => {
+    replayButton.disabled = !motionPreference.matches;
+    replayButton.textContent = motionPreference.matches
+      ? "Replay intro ↻"
+      : "Reduced motion enabled";
+  };
+  updateReplay();
+  motionPreference.addEventListener("change", updateReplay);
+  replayButton.addEventListener("click", () => {
+    if (!motionPreference.matches) return;
+    hero.scrollIntoView({ behavior: "instant", block: "start" });
+    hero.classList.add("replaying");
+    // A single layout read on explicit replay restarts the CSS entrance animations.
+    void hero.offsetWidth;
+    hero.classList.remove("replaying");
+  });
+
   const parallaxImages = [
     ...document.querySelectorAll(".education-image img, .travel-photos img"),
   ];

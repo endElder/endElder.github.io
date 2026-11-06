@@ -1312,3 +1312,168 @@ footer b {
     transform: none;
   }
 }
+
+/* Visible on touch devices too: continuous accents plus an explicit intro replay. */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.replay-intro {
+  display: none;
+  color: var(--accent);
+  background: #edbb650d;
+  border: 1px solid #edbb6540;
+  border-radius: 4px;
+  padding: 9px 12px;
+  font: 10px/1.5 var(--mono);
+  margin-top: 20px;
+}
+.js-ready .replay-intro {
+  display: inline-flex;
+}
+.replay-intro:hover {
+  background: #edbb6522;
+  border-color: var(--accent);
+}
+.replay-intro:disabled {
+  cursor: default;
+  color: var(--muted);
+  border-color: var(--edge);
+}
+.hero.replaying .hero-line,
+.hero.replaying .hero-description,
+.hero.replaying .scroll-link,
+.hero.replaying .terminal-lines p {
+  animation: none !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 > .hero-line {
+    animation-duration: 1.4s;
+  }
+  .hero h1 > .hero-line:nth-child(2) {
+    animation-delay: 350ms;
+  }
+  .hero-name {
+    background: linear-gradient(
+      110deg,
+      #edbb65 20%,
+      #fff4da 38%,
+      #edbb65 55%,
+      #c78b39 75%,
+      #edbb65 90%
+    );
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: name-sheen 5s ease-in-out infinite;
+  }
+  .hero-dot {
+    color: var(--accent);
+  }
+  .terminal {
+    position: relative;
+    animation: terminal-float 5s ease-in-out infinite;
+  }
+  .terminal::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      #fff0cf,
+      transparent
+    );
+    animation: terminal-scan 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .terminal-lines p:not(.terminal-last) {
+    padding: 4px 7px;
+    margin: 3px -7px;
+    border-radius: 3px;
+    animation:
+      line-in 0.55s ease both,
+      terminal-row 8s ease-in-out infinite;
+    animation-delay: var(--delay), calc(var(--row, 0) * 2s + 1.5s);
+  }
+  .terminal-lines p:nth-child(2) {
+    --row: 1;
+  }
+  .terminal-lines p:nth-child(3) {
+    --row: 2;
+  }
+  .terminal-lines p:nth-child(4) {
+    --row: 3;
+  }
+  .flow-line {
+    stroke-width: 3;
+    stroke-dasharray: 13 25;
+    animation-duration: 1.6s;
+  }
+  .check-pulse {
+    animation-duration: 2.3s;
+  }
+  .pointer-glow {
+    background: radial-gradient(circle, #edbb651b, transparent 68%);
+  }
+}
+@keyframes name-sheen {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0% 0;
+  }
+}
+@keyframes terminal-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+@keyframes terminal-scan {
+  0%,
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  95% {
+    transform: translateX(285%);
+  }
+}
+@keyframes terminal-row {
+  0%,
+  25%,
+  100% {
+    background: transparent;
+    box-shadow: inset 0 0 0 transparent;
+  }
+  5%,
+  18% {
+    background: #edbb6524;
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+}
+@media (max-width: 700px) {
+  .hero-actions {
+    gap: 15px;
+  }
+  .replay-intro {
+    margin-top: 8px;
+  }
+}

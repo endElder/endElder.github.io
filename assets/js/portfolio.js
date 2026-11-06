@@ -180,18 +180,19 @@
   trail.classList.add("pointer-trail");
   trail.setAttribute("aria-hidden", "true");
   trail.setAttribute("focusable", "false");
-  const tailLength = 22;
+  const tailLength = 14;
+  const tailLifetime = 220;
   const segments = Array.from({ length: tailLength - 2 }, (_, index) => {
     const segment = document.createElementNS(svgNS, "path");
     const strength = 1 - index / (tailLength - 2);
-    segment.setAttribute("stroke-width", String(0.25 + strength * 2.4));
-    segment.setAttribute("stroke-opacity", String(strength * strength));
+    segment.setAttribute("stroke-width", String(0.15 + strength * 2.05));
+    segment.setAttribute("stroke-opacity", String(strength));
     trail.append(segment);
     return segment;
   });
   const tip = document.createElementNS(svgNS, "circle");
   tip.classList.add("trail-tip");
-  tip.setAttribute("r", "2.1");
+  tip.setAttribute("r", "1.6");
   trail.append(tip);
   document.body.append(trail);
   const heroVisual = document.querySelector(".hero-visual");
@@ -221,7 +222,7 @@
     const age = now - lastMove;
     const delta = lastFrame ? Math.min(40, now - lastFrame) : 16.67;
     lastFrame = now;
-    const ease = 1 - Math.pow(0.64, delta / 16.67);
+    const ease = 1 - Math.pow(0.3, delta / 16.67);
     points[0] = { x: pointerX, y: pointerY };
     for (let i = 1; i < points.length; i++) {
       points[i].x += (points[i - 1].x - points[i].x) * ease;
@@ -233,12 +234,14 @@
         c = points[index + 2];
       segment.setAttribute(
         "d",
-        `M${index === 0 ? a.x : (a.x + b.x) / 2} ${index === 0 ? a.y : (a.y + b.y) / 2} Q${b.x} ${b.y} ${(b.x + c.x) / 2} ${(b.y + c.y) / 2}`,
+        `M${index === 0 ? a.x : (a.x + b.x) / 2} ${index === 0 ? a.y : (a.y + b.y) / 2} L${b.x} ${b.y} L ${(b.x + c.x) / 2} ${(b.y + c.y) / 2}`,
       );
     });
     tip.setAttribute("cx", String(pointerX));
     tip.setAttribute("cy", String(pointerY));
-    trail.style.opacity = String(Math.max(0, 1 - Math.max(0, age - 100) / 650));
+    trail.style.opacity = String(
+      Math.max(0, 1 - Math.max(0, age - 40) / (tailLifetime - 40)),
+    );
     glow.style.transform = `translate3d(${pointerX - 56}px, ${pointerY - 56}px, 0)`;
     const inside =
       pointerX >= rect.left &&
@@ -253,7 +256,7 @@
       "--tilt-y",
       inside ? `${((pointerX - rect.left) / rect.width - 0.5) * 6}deg` : "0deg",
     );
-    if (age < 750) pointerFrame = requestAnimationFrame(renderPointer);
+    if (age < tailLifetime) pointerFrame = requestAnimationFrame(renderPointer);
     else {
       trail.classList.remove("visible");
       lastFrame = 0;
@@ -271,7 +274,7 @@
       pointerX = event.clientX;
       pointerY = event.clientY;
       const now = performance.now();
-      if (!points.length || now - lastMove > 750) {
+      if (!points.length || now - lastMove > tailLifetime) {
         points = Array.from({ length: tailLength }, () => ({
           x: pointerX,
           y: pointerY,

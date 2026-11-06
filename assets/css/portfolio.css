@@ -1499,14 +1499,14 @@ footer b {
 }
 .pointer-trail path {
   fill: none;
-  stroke: #ffe0a0;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 0 3px #edbb6599);
+  stroke: #ffedc2;
+  stroke-linecap: butt;
+  stroke-linejoin: bevel;
+  filter: drop-shadow(0 0 0.8px #ffd17b80);
 }
 .trail-tip {
   fill: #fff9ec;
-  filter: drop-shadow(0 0 4px #ffd17b);
+  filter: drop-shadow(0 0 1.5px #ffd17b);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hero-name {

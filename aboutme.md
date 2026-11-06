@@ -11,16 +11,16 @@ Born and raised in Shanghai, China. After graduating from middle school, followe
 
 Here are some place that I have gone:
 
-![aus](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/aus.JPG)  
+![aus](/assets/img/aus.JPG)
 *Harschkat, Austria*
 
-![egy](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/egy.JPG)
+![egy](/assets/img/egy.JPG)
 *Cairo, Egypt*
 
-![egy2](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/egy2.JPG)
+![egy2](/assets/img/egy2.JPG)
 *Luxor, Egypt*
 
-![gen](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/gen.JPG)
+![gen](/assets/img/gen.JPG)
 *Neuschwanstein Castle, Germany*
 
 

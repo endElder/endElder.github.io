@@ -6,22 +6,24 @@
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
   const hero = document.querySelector(".hero");
   const replayButton = document.querySelector("#replay-intro");
-  const updateReplay = () => {
-    replayButton.disabled = !motionPreference.matches;
-    replayButton.textContent = motionPreference.matches
-      ? "Replay intro ↻"
-      : "Reduced motion enabled";
-  };
-  updateReplay();
-  motionPreference.addEventListener("change", updateReplay);
-  replayButton.addEventListener("click", () => {
-    if (!motionPreference.matches) return;
-    hero.scrollIntoView({ behavior: "instant", block: "start" });
-    hero.classList.add("replaying");
-    // A single layout read on explicit replay restarts the CSS entrance animations.
-    void hero.offsetWidth;
-    hero.classList.remove("replaying");
-  });
+  if (hero && replayButton) {
+    const updateReplay = () => {
+      replayButton.disabled = !motionPreference.matches;
+      replayButton.textContent = motionPreference.matches
+        ? "Replay intro ↻"
+        : "Reduced motion enabled";
+    };
+    updateReplay();
+    motionPreference.addEventListener("change", updateReplay);
+    replayButton.addEventListener("click", () => {
+      if (!motionPreference.matches) return;
+      hero.scrollIntoView({ behavior: "instant", block: "start" });
+      hero.classList.add("replaying");
+      // A single layout read on explicit replay restarts the CSS entrance animations.
+      void hero.offsetWidth;
+      hero.classList.remove("replaying");
+    });
+  }
 
   const parallaxImages = [
     ...document.querySelectorAll(".education-image img, .travel-photos img"),
@@ -85,7 +87,12 @@
   const nav = [...document.querySelectorAll(".rail a")];
   let active = -1;
   function setScene(index) {
-    if (active === index) return;
+    if (
+      !chapters.length ||
+      !document.querySelector("#scene") ||
+      active === index
+    )
+      return;
     active = index;
     const scene = scenes[index];
     document.querySelector("#stage-label").textContent =
@@ -161,7 +168,7 @@
     );
     document
       .querySelectorAll(
-        ".section-heading, .section-intro, .contact h2, .about-copy h2",
+        ".section-heading, .section-intro, .contact h2, .about-copy h2, .page-content > h2, .page-content > h3, .page-content > p, .page-content > ul",
       )
       .forEach((el) => el.classList.add("reveal"));
     document.querySelectorAll(".reveal").forEach((el, index) => {
@@ -209,8 +216,8 @@
     lastFrame = 0;
     glow.classList.remove("visible");
     trail.classList.remove("visible");
-    heroVisual.style.removeProperty("--tilt-x");
-    heroVisual.style.removeProperty("--tilt-y");
+    heroVisual?.style.removeProperty("--tilt-x");
+    heroVisual?.style.removeProperty("--tilt-y");
   }
   function renderPointer(now) {
     pointerFrame = 0;
@@ -218,7 +225,7 @@
       resetPointer();
       return;
     }
-    const rect = heroVisual.getBoundingClientRect();
+    const rect = heroVisual?.getBoundingClientRect();
     const age = now - lastMove;
     const delta = lastFrame ? Math.min(40, now - lastFrame) : 16.67;
     lastFrame = now;
@@ -244,15 +251,16 @@
     );
     glow.style.transform = `translate3d(${pointerX - 56}px, ${pointerY - 56}px, 0)`;
     const inside =
+      rect &&
       pointerX >= rect.left &&
       pointerX <= rect.right &&
       pointerY >= rect.top &&
       pointerY <= rect.bottom;
-    heroVisual.style.setProperty(
+    heroVisual?.style.setProperty(
       "--tilt-x",
       inside ? `${(0.5 - (pointerY - rect.top) / rect.height) * 5}deg` : "0deg",
     );
-    heroVisual.style.setProperty(
+    heroVisual?.style.setProperty(
       "--tilt-y",
       inside ? `${((pointerX - rect.left) / rect.width - 0.5) * 6}deg` : "0deg",
     );
@@ -300,4 +308,18 @@
     onScroll();
   });
   finePointer.addEventListener("change", resetPointer);
+  const menu = document.querySelector(".site-menu");
+  menu?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      menu.open = false;
+      menu.querySelector("summary").focus();
+    }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (menu?.open && !menu.contains(event.target)) menu.open = false;
+  });
+  document.querySelectorAll(".page-content img").forEach((image) => {
+    image.loading = "lazy";
+    image.decoding = "async";
+  });
 })();

@@ -8,11 +8,11 @@ title: Education
 **University of Waterloo** Ontario, Canada
 
 
-Bachelor of Mathematics 
+Bachelor of Mathematics
 
-Sep 2020 - Aug 2024  
+Sep 2020 - Aug 2024
 
-![uw](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/uw.jpg)
+![uw](/assets/img/uw.jpg)
 
 
 
@@ -24,10 +24,10 @@ Sep 2020 - Aug 2024
 
 **École Polytechnique Fédérale de Lausanne** Lausanne, Switerland
 
-Exchange 
+Exchange
 
-Sep 2022 - Jan 2023  
+Sep 2022 - Jan 2023
 
 
-![Epfl](https://raw.githubusercontent.com/endElder/endElder.github.io/master/assets/img/epfl.jpg)
+![Epfl](/assets/img/epfl.jpg)
 Beautiful Campus, different style

@@ -1,0 +1,43 @@
+---
+layout: portfolio
+---
+
+<article class="article-shell">
+  <header class="page-header">
+    <div class="page-breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span
+      ><span>{{ page.title | escape }}</span>
+    </div>
+    <div class="page-heading-row">
+      <div>
+        <div class="eyebrow">FIELD NOTES / MIDI WANG</div>
+        <h1>{{ page.title | escape }}</h1>
+        {% if page.subtitle %}
+        <p class="page-subtitle">{{ page.subtitle | escape }}</p>
+        {% endif %}
+      </div>
+      <img
+        class="page-avatar"
+        src="/assets/img/miffy-avatar.png"
+        width="88"
+        height="88"
+        alt="Miffy avatar"
+      />
+    </div>
+  </header>
+  <div class="page-content">{{ content }}</div>
+  <nav class="page-links" aria-label="Explore more pages">
+    <a href="/">← Home</a>
+    {% unless page.title == 'Experience' %}<a href="/2025-05-25-my-experience/"
+      >Experience ↗</a
+    >{% endunless %} {% unless page.title == 'Skills' %}<a
+      href="/2025-05-21-skills/"
+      >Skills ↗</a
+    >{% endunless %} {% unless page.title == 'Education' %}<a
+      href="/2025-05-21-education/"
+      >Education ↗</a
+    >{% endunless %} {% unless page.url == '/aboutme/' %}<a href="/aboutme/"
+      >About ↗</a
+    >{% endunless %}
+  </nav>
+</article>

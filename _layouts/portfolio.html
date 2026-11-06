@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0e11" />
+    <title>{{ page.title | escape }} | Midi Wang</title>
+    <meta
+      name="description"
+      content="{{ page.subtitle | default: site.description | escape }}"
+    />
+    <meta property="og:title" content="{{ page.title | escape }} | Midi Wang" />
+    <meta
+      property="og:description"
+      content="{{ page.subtitle | default: site.description | escape }}"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://endelder.github.io{{ page.url }}"
+    />
+    <meta
+      property="og:image"
+      content="https://endelder.github.io/assets/img/miffy-avatar.png"
+    />
+    <link rel="canonical" href="https://endelder.github.io{{ page.url }}" />
+    <link rel="icon" href="/assets/img/miffy-avatar.png" />
+    <link rel="stylesheet" href="/assets/css/portfolio.css?v=all-pages-1" />
+    <script src="/assets/js/portfolio.js?v=all-pages-1" defer></script>
+  </head>
+  <body class="{% if page.url != '/' %}detail-page{% endif %}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"></div>
+    {% include portfolio-nav.html %}
+    <main id="main">{{ content }}</main>
+    {% include portfolio-footer.html %}
+  </body>
+</html>

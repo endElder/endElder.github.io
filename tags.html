@@ -3,6 +3,9 @@ layout: page
 title: 'Tag Index'
 ---
 
+{% if site.tags.size == 0 %}
+<p>No tags yet. You can explore my <a href="/2025-05-25-my-experience/">experience</a>, <a href="/2025-05-21-skills/">skills</a>, and <a href="/2025-05-21-education/">education</a>.</p>
+{% endif %}
 {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
 
 {%- capture site_tags -%}

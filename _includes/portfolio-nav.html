@@ -1,0 +1,72 @@
+{% capture portfolio_links %}
+<a
+  href="/2025-05-25-my-experience/"
+  {%
+  if
+  page.title=""
+  ="Experience"
+  %}
+  aria-current="page"
+  {%
+  endif
+  %}
+  >Experience</a
+>
+<a
+  href="/2025-05-21-skills/"
+  {%
+  if
+  page.title=""
+  ="Skills"
+  %}
+  aria-current="page"
+  {%
+  endif
+  %}
+  >Skills</a
+>
+<a
+  href="/2025-05-21-education/"
+  {%
+  if
+  page.title=""
+  ="Education"
+  %}
+  aria-current="page"
+  {%
+  endif
+  %}
+  >Education</a
+>
+<a
+  href="/aboutme/"
+  {%
+  if
+  page.url=""
+  ="/aboutme/"
+  %}
+  aria-current="page"
+  {%
+  endif
+  %}
+  >About</a
+>
+<a class="contact-link" href="mailto:midiw777@gmail.com"
+  >Say hello <span>↗</span></a
+>
+{% endcapture %}
+<header class="topbar" id="site-top">
+  <a class="wordmark" href="/" aria-label="Midi Wang, home"
+    ><span>m<span class="mark-dot">.</span></span
+    ><b>MIDI WANG</b></a
+  >
+  <nav class="desktop-nav" aria-label="Main navigation">
+    {{ portfolio_links }}
+  </nav>
+  <details class="site-menu">
+    <summary>Menu <span aria-hidden="true">+</span></summary>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      {{ portfolio_links }}
+    </nav>
+  </details>
+</header>

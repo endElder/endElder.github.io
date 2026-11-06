@@ -1,5 +1,12 @@
 "use strict";
 (() => {
+  const motionPreference = matchMedia(
+    "(prefers-reduced-motion: no-preference)",
+  );
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+  const parallaxImages = [
+    ...document.querySelectorAll(".education-image img, .travel-photos img"),
+  ];
   const colors = {
     fg: "#eae8e2",
     muted: "#92969e",
@@ -21,7 +28,7 @@
       note: "From data cleaning to model deployment.",
       alt: "Conceptual diagram: data flows through a machine learning pipeline to a deployed model.",
       svg: () =>
-        `${label(35, 53, "STARTUP / SYSTEMS THINKING", "muted", 10)}${box(35, 97, 130, 54, "Raw data", "gold")}${line(176, 124, 335, 124, "gold", 'class="draw-line"')}${box(350, 97, 135, 54, "Clean & process", "green")}<g class="appear" style="--delay:.5s">${line(418, 160, 418, 220, "green")}${box(350, 234, 135, 54, "ML pipeline", "green")}${line(338, 261, 182, 261, "blue")}${box(35, 234, 130, 54, "Deploy model", "blue")}</g><g class="appear" style="--delay:1s">${label(260, 346, "DATA → SYSTEM → PRODUCTION", "gold", 12, 'text-anchor="middle"')}</g>`,
+        `${label(35, 53, "STARTUP / SYSTEMS THINKING", "muted", 10)}${box(35, 97, 130, 54, "Raw data", "gold")}${line(176, 124, 335, 124, "gold", 'class="draw-line"')}${box(350, 97, 135, 54, "Clean & process", "green")}<g class="appear" style="--delay:.5s">${line(418, 160, 418, 220, "green")}${box(350, 234, 135, 54, "ML pipeline", "green")}${line(338, 261, 182, 261, "blue")}${box(35, 234, 130, 54, "Deploy model", "blue")}</g><g class="appear" style="--delay:1s">${label(260, 346, "DATA → SYSTEM → PRODUCTION", "gold", 12, 'text-anchor="middle"')}</g><path class="flow-line" d="M176 124 H335 M418 160 V220 M338 261 H182" fill="none" stroke="#edbb65" stroke-width="2"/>`,
     },
     {
       title: "MAKE IT RELIABLE",
@@ -34,7 +41,7 @@
           .map((i) => {
             const x = 40 + (i % 5) * 91,
               y = 204 + Math.floor(i / 5) * 65;
-            return `<g class="appear" style="--delay:${0.3 + i * 0.09}s"><rect x="${x}" y="${y}" width="76" height="47" rx="5" fill="#121a19" stroke="#91caaa55"/>${label(x + 38, y + 29, "✓", "green", 23, 'text-anchor="middle"')}</g>`;
+            return `<g class="appear" style="--delay:${0.3 + i * 0.09}s"><rect x="${x}" y="${y}" width="76" height="47" rx="5" fill="#121a19" stroke="#91caaa55"/>${label(x + 38, y + 29, "✓", "green", 23, `text-anchor="middle" class="check-pulse" style="--beat:${i * 0.16}s"`)}</g>`;
           })
           .join(
             "",
@@ -84,6 +91,20 @@
     framePending = true;
     requestAnimationFrame(() => {
       framePending = false;
+      const imageOffsets =
+        motionPreference.matches && innerWidth > 700
+          ? parallaxImages.map((image) => {
+              const rect = image.parentElement.getBoundingClientRect();
+              const offset = Math.max(
+                -14,
+                Math.min(
+                  14,
+                  (innerHeight / 2 - rect.top - rect.height / 2) * 0.045,
+                ),
+              );
+              return [image, offset];
+            })
+          : [];
       const max = document.documentElement.scrollHeight - innerHeight;
       document.querySelector(".reading-progress").style.transform =
         `scaleX(${max > 0 ? scrollY / max : 0})`;
@@ -99,6 +120,9 @@
         }
       });
       setScene(best);
+      imageOffsets.forEach(([image, offset]) =>
+        image.style.setProperty("--parallax-y", `${offset}px`),
+      );
     });
   }
   setScene(0);
@@ -116,7 +140,82 @@
         }),
       { threshold: 0.12 },
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document
+      .querySelectorAll(
+        ".section-heading, .section-intro, .contact h2, .about-copy h2",
+      )
+      .forEach((el) => el.classList.add("reveal"));
+    document.querySelectorAll(".reveal").forEach((el, index) => {
+      el.style.setProperty("--reveal-delay", `${(index % 2) * 90}ms`);
+      observer.observe(el);
+    });
     document.body.classList.add("js-ready");
   }
+  // Pointer work is scheduled only when a pointer actually moves, never in an idle loop.
+  const glow = document.createElement("div");
+  glow.className = "pointer-glow";
+  glow.setAttribute("aria-hidden", "true");
+  document.body.append(glow);
+  const heroVisual = document.querySelector(".hero-visual");
+  let pointerFrame = 0,
+    pointerX = 0,
+    pointerY = 0;
+  function resetPointer() {
+    if (pointerFrame) cancelAnimationFrame(pointerFrame);
+    pointerFrame = 0;
+    glow.classList.remove("visible");
+    heroVisual.style.removeProperty("--tilt-x");
+    heroVisual.style.removeProperty("--tilt-y");
+  }
+  document.addEventListener(
+    "pointermove",
+    (event) => {
+      if (
+        !motionPreference.matches ||
+        !finePointer.matches ||
+        event.pointerType === "touch"
+      )
+        return;
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      if (pointerFrame) return;
+      pointerFrame = requestAnimationFrame(() => {
+        pointerFrame = 0;
+        const rect = heroVisual.getBoundingClientRect();
+        const inside =
+          pointerX >= rect.left &&
+          pointerX <= rect.right &&
+          pointerY >= rect.top &&
+          pointerY <= rect.bottom;
+        glow.style.transform = `translate3d(${pointerX - 160}px, ${pointerY - 160}px, 0)`;
+        glow.classList.add("visible");
+        heroVisual.style.setProperty(
+          "--tilt-x",
+          inside
+            ? `${(0.5 - (pointerY - rect.top) / rect.height) * 5}deg`
+            : "0deg",
+        );
+        heroVisual.style.setProperty(
+          "--tilt-y",
+          inside
+            ? `${((pointerX - rect.left) / rect.width - 0.5) * 6}deg`
+            : "0deg",
+        );
+      });
+    },
+    { passive: true },
+  );
+  document.documentElement.addEventListener("pointerleave", resetPointer);
+  window.addEventListener("blur", resetPointer);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) resetPointer();
+  });
+  motionPreference.addEventListener("change", () => {
+    resetPointer();
+    parallaxImages.forEach((image) =>
+      image.style.removeProperty("--parallax-y"),
+    );
+    onScroll();
+  });
+  finePointer.addEventListener("change", resetPointer);
 })();

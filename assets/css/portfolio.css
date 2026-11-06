@@ -1121,3 +1121,194 @@ footer b {
     translate: none;
   }
 }
+
+/* Motion accents: progressive enhancement, with no continuous JavaScript loop. */
+.hero h1 > .hero-line {
+  display: block;
+  color: var(--fg);
+  animation: hero-rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero h1 > .hero-line:nth-child(2) {
+  animation-delay: 160ms;
+}
+.hero-name {
+  color: var(--accent);
+}
+.hero-copy > .eyebrow {
+  animation: line-in 0.8s ease both;
+}
+.hero-description {
+  animation: hero-rise 1s 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero .scroll-link {
+  animation: hero-rise 1s 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-visual {
+  perspective: 1100px;
+}
+.terminal {
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))
+    rotate(1deg);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s,
+    box-shadow 0.4s;
+}
+.terminal:hover {
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  border-color: #edbb6555;
+  box-shadow:
+    0 35px 100px #0005,
+    0 0 35px #edbb6508;
+}
+.pointer-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #edbb6509, transparent 68%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 10;
+}
+.pointer-glow.visible {
+  opacity: 1;
+}
+.flow-line {
+  stroke-dasharray: 7 35;
+  animation: flow 2.4s linear infinite;
+}
+.check-pulse {
+  animation: check-pulse 3.2s var(--beat, 0s) ease-in-out infinite;
+}
+.js-ready .reveal {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.skill-group {
+  position: relative;
+  transition:
+    border-color 0.4s,
+    background 0.4s;
+}
+.skill-group > p {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s;
+}
+.topbar nav a,
+.text-link,
+.contact-bottom a {
+  position: relative;
+}
+.topbar nav a::after,
+.text-link::after,
+.contact-bottom a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  height: 1px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.topbar nav a:hover::after,
+.text-link:hover::after,
+.contact-bottom a:hover::after,
+.topbar nav a:focus-visible::after,
+.text-link:focus-visible::after,
+.contact-bottom a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.email-link > span {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.email-link:hover > span {
+  transform: translate(5px, -5px);
+}
+.travel-photos figure {
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s;
+}
+@media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+  .education-image img,
+  .travel-photos img {
+    transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.075);
+    transition:
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.4s;
+  }
+  .education-card:hover img {
+    transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.11);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .skill-group:hover {
+    border-color: #edbb6555;
+    background: #edbb6503;
+  }
+  .skill-group:hover > p {
+    transform: translateX(8px);
+    color: var(--accent);
+  }
+  .travel-one:hover {
+    transform: rotate(-2deg) translateY(-6px);
+    border-color: #edbb6555;
+  }
+  .travel-two:hover {
+    transform: rotate(2deg) translateY(-6px);
+    border-color: #edbb6555;
+  }
+}
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -84;
+  }
+}
+@keyframes check-pulse {
+  0%,
+  30%,
+  100% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pointer-glow {
+    display: none;
+  }
+  .terminal,
+  .terminal:hover {
+    transform: none;
+  }
+  .skill-group:hover > p,
+  .email-link:hover > span {
+    transform: none;
+  }
+  .hero h1 > .hero-line,
+  .hero-description,
+  .hero .scroll-link {
+    opacity: 1;
+    transform: none;
+  }
+}

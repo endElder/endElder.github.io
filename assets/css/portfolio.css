@@ -1873,3 +1873,5 @@ footer b {
     transform: none;
   }
 }
+
+.site-menu:not([open]) .mobile-nav { display: none; }

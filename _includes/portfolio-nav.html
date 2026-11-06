@@ -1,59 +1,9 @@
 {% capture portfolio_links %}
-<a
-  href="/2025-05-25-my-experience/"
-  {%
-  if
-  page.title=""
-  ="Experience"
-  %}
-  aria-current="page"
-  {%
-  endif
-  %}
-  >Experience</a
->
-<a
-  href="/2025-05-21-skills/"
-  {%
-  if
-  page.title=""
-  ="Skills"
-  %}
-  aria-current="page"
-  {%
-  endif
-  %}
-  >Skills</a
->
-<a
-  href="/2025-05-21-education/"
-  {%
-  if
-  page.title=""
-  ="Education"
-  %}
-  aria-current="page"
-  {%
-  endif
-  %}
-  >Education</a
->
-<a
-  href="/aboutme/"
-  {%
-  if
-  page.url=""
-  ="/aboutme/"
-  %}
-  aria-current="page"
-  {%
-  endif
-  %}
-  >About</a
->
-<a class="contact-link" href="mailto:midiw777@gmail.com"
-  >Say hello <span>↗</span></a
->
+<a href="/2025-05-25-my-experience/" aria-current="{% if page.url == '/2025-05-25-my-experience/' %}page{% else %}false{% endif %}">Experience</a>
+<a href="/2025-05-21-skills/" aria-current="{% if page.url == '/2025-05-21-skills/' %}page{% else %}false{% endif %}">Skills</a>
+<a href="/2025-05-21-education/" aria-current="{% if page.url == '/2025-05-21-education/' %}page{% else %}false{% endif %}">Education</a>
+<a href="/aboutme/" aria-current="{% if page.url == '/aboutme/' %}page{% else %}false{% endif %}">About</a>
+<a class="contact-link" href="mailto:midiw777@gmail.com">Say hello <span>↗</span></a>
 {% endcapture %}
 <header class="topbar" id="site-top">
   <a class="wordmark" href="/" aria-label="Midi Wang, home"

@@ -170,21 +170,94 @@
     });
     document.body.classList.add("js-ready");
   }
-  // Pointer work is scheduled only when a pointer actually moves, never in an idle loop.
+  // A short comet trail follows fine pointers; it stops rendering after settling.
   const glow = document.createElement("div");
   glow.className = "pointer-glow";
   glow.setAttribute("aria-hidden", "true");
   document.body.append(glow);
+  const svgNS = "http://www.w3.org/2000/svg";
+  const trail = document.createElementNS(svgNS, "svg");
+  trail.classList.add("pointer-trail");
+  trail.setAttribute("aria-hidden", "true");
+  trail.setAttribute("focusable", "false");
+  const tailLength = 22;
+  const segments = Array.from({ length: tailLength - 2 }, (_, index) => {
+    const segment = document.createElementNS(svgNS, "path");
+    const strength = 1 - index / (tailLength - 2);
+    segment.setAttribute("stroke-width", String(0.25 + strength * 2.4));
+    segment.setAttribute("stroke-opacity", String(strength * strength));
+    trail.append(segment);
+    return segment;
+  });
+  const tip = document.createElementNS(svgNS, "circle");
+  tip.classList.add("trail-tip");
+  tip.setAttribute("r", "2.1");
+  trail.append(tip);
+  document.body.append(trail);
   const heroVisual = document.querySelector(".hero-visual");
   let pointerFrame = 0,
     pointerX = 0,
     pointerY = 0;
+  let points = [],
+    lastMove = 0,
+    lastFrame = 0;
   function resetPointer() {
     if (pointerFrame) cancelAnimationFrame(pointerFrame);
     pointerFrame = 0;
+    points = [];
+    lastFrame = 0;
     glow.classList.remove("visible");
+    trail.classList.remove("visible");
     heroVisual.style.removeProperty("--tilt-x");
     heroVisual.style.removeProperty("--tilt-y");
+  }
+  function renderPointer(now) {
+    pointerFrame = 0;
+    if (!motionPreference.matches || !finePointer.matches || document.hidden) {
+      resetPointer();
+      return;
+    }
+    const rect = heroVisual.getBoundingClientRect();
+    const age = now - lastMove;
+    const delta = lastFrame ? Math.min(40, now - lastFrame) : 16.67;
+    lastFrame = now;
+    const ease = 1 - Math.pow(0.64, delta / 16.67);
+    points[0] = { x: pointerX, y: pointerY };
+    for (let i = 1; i < points.length; i++) {
+      points[i].x += (points[i - 1].x - points[i].x) * ease;
+      points[i].y += (points[i - 1].y - points[i].y) * ease;
+    }
+    segments.forEach((segment, index) => {
+      const a = points[index],
+        b = points[index + 1],
+        c = points[index + 2];
+      segment.setAttribute(
+        "d",
+        `M${index === 0 ? a.x : (a.x + b.x) / 2} ${index === 0 ? a.y : (a.y + b.y) / 2} Q${b.x} ${b.y} ${(b.x + c.x) / 2} ${(b.y + c.y) / 2}`,
+      );
+    });
+    tip.setAttribute("cx", String(pointerX));
+    tip.setAttribute("cy", String(pointerY));
+    trail.style.opacity = String(Math.max(0, 1 - Math.max(0, age - 100) / 650));
+    glow.style.transform = `translate3d(${pointerX - 56}px, ${pointerY - 56}px, 0)`;
+    const inside =
+      pointerX >= rect.left &&
+      pointerX <= rect.right &&
+      pointerY >= rect.top &&
+      pointerY <= rect.bottom;
+    heroVisual.style.setProperty(
+      "--tilt-x",
+      inside ? `${(0.5 - (pointerY - rect.top) / rect.height) * 5}deg` : "0deg",
+    );
+    heroVisual.style.setProperty(
+      "--tilt-y",
+      inside ? `${((pointerX - rect.left) / rect.width - 0.5) * 6}deg` : "0deg",
+    );
+    if (age < 750) pointerFrame = requestAnimationFrame(renderPointer);
+    else {
+      trail.classList.remove("visible");
+      lastFrame = 0;
+    }
   }
   document.addEventListener(
     "pointermove",
@@ -197,30 +270,17 @@
         return;
       pointerX = event.clientX;
       pointerY = event.clientY;
-      if (pointerFrame) return;
-      pointerFrame = requestAnimationFrame(() => {
-        pointerFrame = 0;
-        const rect = heroVisual.getBoundingClientRect();
-        const inside =
-          pointerX >= rect.left &&
-          pointerX <= rect.right &&
-          pointerY >= rect.top &&
-          pointerY <= rect.bottom;
-        glow.style.transform = `translate3d(${pointerX - 160}px, ${pointerY - 160}px, 0)`;
-        glow.classList.add("visible");
-        heroVisual.style.setProperty(
-          "--tilt-x",
-          inside
-            ? `${(0.5 - (pointerY - rect.top) / rect.height) * 5}deg`
-            : "0deg",
-        );
-        heroVisual.style.setProperty(
-          "--tilt-y",
-          inside
-            ? `${((pointerX - rect.left) / rect.width - 0.5) * 6}deg`
-            : "0deg",
-        );
-      });
+      const now = performance.now();
+      if (!points.length || now - lastMove > 750) {
+        points = Array.from({ length: tailLength }, () => ({
+          x: pointerX,
+          y: pointerY,
+        }));
+      }
+      lastMove = now;
+      glow.classList.add("visible");
+      trail.classList.add("visible");
+      if (!pointerFrame) pointerFrame = requestAnimationFrame(renderPointer);
     },
     { passive: true },
   );

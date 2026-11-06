@@ -1477,3 +1477,63 @@ footer b {
     margin-top: 8px;
   }
 }
+
+/* A compact light source and a tapered, fading gold comet. */
+.pointer-glow {
+  width: 112px;
+  height: 112px;
+}
+.pointer-trail {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 11;
+}
+.pointer-trail.visible {
+  visibility: visible;
+}
+.pointer-trail path {
+  fill: none;
+  stroke: #ffe0a0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 3px #edbb6599);
+}
+.trail-tip {
+  fill: #fff9ec;
+  filter: drop-shadow(0 0 4px #ffd17b);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-name {
+    background-image: linear-gradient(
+      110deg,
+      #ffd178 15%,
+      #ffe7ac 28%,
+      #ffffff 37%,
+      #ffffff 41%,
+      #ffe8b4 49%,
+      #ffd178 64%,
+      #f4bd5e 82%
+    );
+    text-shadow: 0 0 24px #ffe0a018;
+    animation-duration: 3.8s;
+  }
+  .pointer-glow {
+    background: radial-gradient(
+      circle,
+      #fff2cf20 0%,
+      #edbb6520 20%,
+      transparent 68%
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .pointer-trail {
+    display: none;
+  }
+}
